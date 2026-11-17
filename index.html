@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Botica Prueba ORT · Cremas corporales</title>
+
+<!-- =====================================================================
+     CATÁLOGO Y PRECIOS DE LISTA DE LA TIENDA
+     Para cambiar un precio: editá el número de "price" y guardá (Commit changes).
+     Después, en PrecioZona → Productos, tocá "Volver a leer".
+     Para agregar un producto: copiá un bloque { ... } completo, cambiá nombre,
+     "url" (el final después de #) y precio, y separalo con una coma.
+     ===================================================================== -->
+<script type="application/ld+json" id="catalogo">
+[
+  { "@context": "https://schema.org", "@type": "Product",
+    "name": "Crema Hidratante CeraVe Corporal 454 g",
+    "url": "https://enriquetacrosa.github.io/tienda-prueba-2/#cerave-crema-454",
+    "offers": { "@type": "Offer", "price": "1650", "priceCurrency": "UYU" } },
+  { "@context": "https://schema.org", "@type": "Product",
+    "name": "Loción Hidratante CeraVe 473 ml",
+    "url": "https://enriquetacrosa.github.io/tienda-prueba-2/#cerave-locion-473",
+    "offers": { "@type": "Offer", "price": "1490", "priceCurrency": "UYU" } },
+  { "@context": "https://schema.org", "@type": "Product",
+    "name": "Crema Humectante Cetaphil 453 g",
+    "url": "https://enriquetacrosa.github.io/tienda-prueba-2/#cetaphil-crema-453",
+    "offers": { "@type": "Offer", "price": "1390", "priceCurrency": "UYU" } },
+  { "@context": "https://schema.org", "@type": "Product",
+    "name": "Crema Corporal Nivea Soft 200 ml",
+    "url": "https://enriquetacrosa.github.io/tienda-prueba-2/#nivea-soft-200",
+    "offers": { "@type": "Offer", "price": "420", "priceCurrency": "UYU" } },
+  { "@context": "https://schema.org", "@type": "Product",
+    "name": "Crema Corporal Eucerin UreaRepair 10% 250 ml",
+    "url": "https://enriquetacrosa.github.io/tienda-prueba-2/#eucerin-urea-250",
+    "offers": { "@type": "Offer", "price": "1250", "priceCurrency": "UYU" } }
+]
+</script>
+
+<style>
+:root{--bg:#f7f8f6;--card:#fff;--line:#e2e6e3;--fg:#1f2a2c;--soft:#5d6a6c;--brand:#6b3fa0;--brand-fg:#fff;--warn:#7a5600;--warn-bg:#f6e8c4;--bad:#9c2f26}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.5}
+button,select{font:inherit;color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.top{background:var(--brand);color:var(--brand-fg);font-size:13px;text-align:center;padding:6px 16px}
+header{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.hbar{display:flex;align-items:center;gap:16px;padding:12px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;color:var(--brand);letter-spacing:-.3px}
+.logo small{display:block;font-size:12px;font-weight:500;color:var(--soft);letter-spacing:0}
+.sp{flex:1}
+.where{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px}
+.seg{display:inline-flex;gap:3px;background:#efecf3;border-radius:9px;padding:3px}
+.seg button{border:0;background:none;border-radius:7px;padding:6px 12px;cursor:pointer;color:var(--soft)}
+.seg button.on{background:var(--card);color:var(--fg);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+select{border:1px solid var(--line);border-radius:8px;padding:7px 8px;background:var(--card);max-width:100%}
+.btn{background:var(--brand);color:var(--brand-fg);border:0;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+.cartbtn{position:relative}
+.cartbtn b{position:absolute;top:-6px;right:-6px;background:var(--bad);color:#fff;border-radius:999px;font-size:11px;padding:1px 6px}
+h1{font-size:28px;margin:22px 0 4px}
+.lead{color:var(--soft);margin:0 0 16px}
+.alert{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:14px}
+.linkb{background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-bottom:40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.ph{height:120px;border-radius:10px;background:#f0eaf7;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;color:var(--brand);font-weight:700;font-size:14px}
+.card h3{margin:0;font-size:15px;line-height:1.3}
+.price{font-size:26px;font-weight:800;margin-top:auto}
+.lock{margin-top:auto;font-size:14px;color:var(--soft);background:#f0f3f1;border-radius:8px;padding:8px 10px}
+.note{font-size:12px;color:var(--soft)}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100vw);background:var(--card);border-left:1px solid var(--line);z-index:20;padding:18px;overflow:auto;box-shadow:-10px 0 30px rgba(0,0,0,.15)}
+.drawer h2{margin:0 0 12px}
+.line{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.actions .btn{flex:1}
+.err{color:var(--bad);font-size:14px;min-height:1.2em}
+footer{border-top:1px solid var(--line);color:var(--soft);font-size:13px;padding:18px 0 28px}
+.status{font-size:13px;color:var(--soft)}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="top">Tienda de prueba 2 para el proyecto PrecioZona · ORT 2026 · No es una tienda real</div>
+<header><div class="wrap hbar">
+  <div class="logo">Botica Prueba ORT<small>Cremas y cuidado corporal</small></div>
+  <div class="sp"></div>
+  <span class="status">Envío gratis en Montevideo o retiro en sucursal</span>
+  <button class="btn ghost cartbtn" id="cartBtn">Carrito <b id="nCart" hidden>0</b></button>
+</div></header>
+
+<main class="wrap">
+  <h1>Cremas corporales</h1>
+  <p class="lead">Envío gratis en Montevideo o retiro en sucursal.</p>
+  <div id="msg"></div>
+  <div class="grid" id="grid"></div>
+</main>
+<div class="drawer" id="drawer" hidden></div>
+
+<footer><div class="wrap">
+  <div class="status" id="status">Conectando con PrecioZona…</div>
+  <button class="linkb" id="resetCk" style="font-size:13px;font-weight:500">Borrar mis cookies (para volver a probar el cartel)</button>
+</div></footer>
+
+<!-- =====================================================================
+     CONEXIÓN CON PRECIOZONA
+     Pegá en la línea de abajo el código que copiaste en PrecioZona
+     (pestaña Exportar → "Copiar código de conexión") y tocá Commit changes.
+     ===================================================================== -->
+<!-- ⬇⬇⬇ PEGÁ EL CÓDIGO EN LA LÍNEA DE ABAJO ⬇⬇⬇ -->
+
+<!-- ⬆⬆⬆ HASTA ACÁ ⬆⬆⬆ -->
+
+
+<script>
+const $ = s => document.querySelector(s);
+const fmt = n => "$ " + Math.round(n).toLocaleString("es-UY");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
+
+// Catálogo de la tienda (el mismo bloque que lee PrecioZona)
+const catalog = JSON.parse($("#catalogo").textContent).map(p => ({ name: p.name, url: p.url, list: Number(p.offers.price) }));
+// ¿Ya se pegó el código de conexión?
+const conectada = !!document.querySelector('script[src*="preciozona.js"]');
+let cfg = null, prices = {}, locPrices = {}, locInfo = null, consent = null, mode = "envio", loc = "", cart = {}, step = 0, done = null, pago = "credito";
+
+// Une cada producto de la tienda con su id en PrecioZona
+const pzId = p => { const m = cfg && cfg.products.find(x => norm(x.name) === norm(p.name) || x.url === p.url); return m ? m.id : null; };
+
+// Precios de las tarjetas: zona conocida + perfil. En el carrito, al elegir barrio: + ajuste del barrio.
+async function refresh() {
+  consent = PrecioZona.consent();
+  if (consent) {
+    const r = await PrecioZona.prices("").catch(() => ({ prices: {} })); prices = r.prices || {};
+    if (loc) { const l = await PrecioZona.prices(loc).catch(() => ({ prices: {} })); locPrices = l.prices || {}; locInfo = l; } else { locPrices = {}; locInfo = null; }
+  } else { prices = {}; locPrices = {}; locInfo = null; }
+  render();
+}
+const cartPrice = id => (loc && locPrices[id] ? locPrices[id] : prices[id]) || {};
+// Sin conexión: la tienda muestra sus precios fijos de siempre
+function renderFijo() {
+  $("#msg").innerHTML = `<div class="alert"><b>Esta tienda todavía no está conectada a PrecioZona.</b> Muestra sus precios fijos de lista, iguales para todos. Pegá el código de conexión en el archivo index.html y los precios pasan a calcularse solos.</div>`;
+  $("#grid").innerHTML = catalog.map(p => `<div class="card"><div class="ph">${esc(p.name.replace(/^(Crema|Loción)( Corporal| Hidratante| Humectante)?\s*/i, ""))}</div><h3>${esc(p.name)}</h3>
+    <div class="price">${fmt(p.list)}</div><div class="note">Precio fijo de la tienda</div><button class="btn" disabled style="opacity:.5;cursor:default">Agregar al carrito</button></div>`).join("");
+  $("#status").textContent = "Sin conexión con PrecioZona · precios fijos";
+  $("#resetCk").hidden = true;
+  $("#cartBtn").onclick = () => {};
+}
+function render() {
+  $("#msg").innerHTML = !consent ? `<div class="alert">Aceptá las cookies para ver los precios y poder comprar. <button class="linkb" id="showCk">Ver el aviso</button></div>` : "";
+  if (!consent) $("#showCk").onclick = () => PrecioZona.showBanner();
+  $("#grid").innerHTML = catalog.map((p, i) => {
+    const id = pzId(p), pr = id && prices[id];
+    return `<div class="card"><div class="ph">${esc(p.name.replace(/^(Crema|Loción)( Corporal| Hidratante| Humectante)?\s*/i, ""))}</div><h3>${esc(p.name)}</h3>
+      ${!consent ? `<div class="lock">Precio disponible al aceptar las cookies</div>`
+        : pr ? `<div class="price">${fmt(pr.price)}</div>${pr.locked ? `<div class="note">Mismo precio que tu compra anterior</div>` : ""}`
+        : `<div class="lock">Este producto todavía no está cargado en PrecioZona</div>`}
+      <button class="btn" data-add="${i}">Agregar al carrito</button></div>`;
+  }).join("");
+  document.querySelectorAll("[data-add]").forEach(b => b.onclick = () => {
+    const p = catalog[b.dataset.add]; cart[b.dataset.add] = (cart[b.dataset.add] || 0) + 1;
+    const id = pzId(p); if (id) PrecioZona.view(id);
+    done = null; render();
+  });
+  const n = Object.values(cart).reduce((a, b) => a + b, 0);
+  $("#nCart").hidden = !n; $("#nCart").textContent = n;
+  if (!$("#drawer").hidden) renderCart();
+}
+function renderCart() {
+  const d = $("#drawer");
+  if (done) { d.innerHTML = `<h2>Pedido confirmado</h2><p>Número <b>${esc(done.id)}</b> · total <b>${fmt(done.total)}</b></p><p class="note">Si volvés a comprar estos productos, vas a pagar el mismo precio.</p><button class="btn" id="close" style="width:100%">Seguir comprando</button>`; $("#close").onclick = () => { d.hidden = true; done = null; render(); }; return; }
+  const items = Object.entries(cart).filter(([, q]) => q > 0).map(([i, q]) => ({ p: catalog[i], q, id: pzId(catalog[i]) }));
+  const total = consent ? items.reduce((a, x) => a + (cartPrice(x.id).price || 0) * x.q, 0) : 0;
+  const opts = mode === "envio" ? cfg.barrios : cfg.pickups;
+  d.innerHTML = `<h2>Carrito</h2>
+    ${items.length ? items.map(x => `<div class="line"><span>${esc(x.p.name)} × ${x.q}</span><span>${consent && cartPrice(x.id).price ? fmt(cartPrice(x.id).price * x.q) : "—"}</span></div>`).join("") : `<p class="note">El carrito está vacío.</p>`}
+    ${items.length && consent ? `<div class="line"><b>Total</b><b>${fmt(total)}</b></div>` : ""}
+    ${step && consent ? `<p style="margin:14px 0 6px;font-size:14px">¿Cómo lo recibís?</p>
+      <span class="seg" id="seg"><button data-m="envio" class="${mode === "envio" ? "on" : ""}">Envío a domicilio</button><button data-m="retiro" class="${mode === "retiro" ? "on" : ""}">Retiro en sucursal</button></span>
+      <select id="loc" aria-label="Barrio o sucursal" style="width:100%;margin-top:8px"><option value="">${mode === "envio" ? "Elegí tu barrio" : "Elegí una sucursal"}</option>${opts.map(o => `<option value="${o.loc}" ${o.loc === loc ? "selected" : ""}>${esc(o.name)}</option>`).join("")}</select>
+      ${locInfo ? `<p class="note">${locInfo.barrio ? `Envío a ${esc(locInfo.barrio)}.` : `Retiro en sucursal.`}</p>` : ""}
+      <p style="margin:14px 0 4px;font-size:14px">Medio de pago</p><select id="pago" style="width:100%">${[["credito", "Tarjeta de crédito"], ["debito", "Tarjeta de débito"], ["transferencia", "Transferencia"], ["efectivo", "Efectivo en sucursal"]].map(([v, l]) => `<option value="${v}" ${v === pago ? "selected" : ""}>${l}</option>`).join("")}</select>
+` : ""}
+    <div class="err" id="err"></div>
+    <div class="actions">${items.length ? `<button class="btn" id="pay">${step && consent ? "Pagar" : "Finalizar compra"}</button>` : ""}<button class="btn ghost" id="close">Cerrar</button></div>`;
+  $("#close").onclick = () => { d.hidden = true; step = 0; };
+  const sg = $("#seg"); if (sg) sg.onclick = e => { const b = e.target.closest("button"); if (b && b.dataset.m !== mode) { mode = b.dataset.m; loc = ""; refresh(); } };
+  const ls = $("#loc"); if (ls) ls.onchange = () => { loc = ls.value; refresh(); };
+  const ps = $("#pago"); if (ps) ps.onchange = () => { pago = ps.value; };
+  const pay = $("#pay"); if (pay) pay.onclick = async () => {
+    try {
+      if (!consent) { await PrecioZona.checkout([], loc, pago).catch(() => {}); await refresh(); return; } // muestra el cartel otra vez
+      if (!step) { step = 1; PrecioZona.startCheckout(); renderCart(); return; }
+      if (!loc) { $("#err").textContent = "Elegí tu barrio o una sucursal."; return; }
+      const list = items.filter(x => x.id).map(x => ({ id: x.id, q: x.q }));
+      if (!list.length) { $("#err").textContent = "Estos productos todavía no están cargados en PrecioZona."; return; }
+      done = await PrecioZona.checkout(list, loc, pago); cart = {}; step = 0; await refresh(); d.hidden = false; renderCart();
+    } catch (e) { $("#err").textContent = e.message; }
+  };
+}
+
+$("#cartBtn").onclick = () => { $("#drawer").hidden = false; renderCart(); };
+$("#resetCk").onclick = async () => { await PrecioZona.reset(); await refresh(); };
+if (!conectada) renderFijo();
+
+if (conectada) (async () => {
+  if (!window.PrecioZona) { $("#status").textContent = "No se pudo cargar PrecioZona. Revisá que el sitio de Render esté en Live y recargá."; return; }
+  try {
+    PrecioZona.onConsent(() => refresh());
+    cfg = await PrecioZona.init();
+    $("#status").textContent = cfg.ready ? `Conectada con PrecioZona · ${cfg.products.length} productos con precio` : "PrecioZona todavía no terminó la configuración inicial: completala en el back-office.";
+    await refresh();
+  } catch (e) { $("#status").textContent = "PrecioZona no respondió. Si el sitio de Render estaba dormido, esperá un minuto y recargá."; }
+})();
+</script>
+</body>
+</html>
